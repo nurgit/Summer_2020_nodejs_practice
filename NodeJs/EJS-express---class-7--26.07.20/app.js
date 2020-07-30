@@ -1,20 +1,29 @@
-//Declaration
-var express=requre('express');
-var app =express();
+//DECELARATION
+var express = require('express');
+var home = require('./controller/home');
+var abc = require('./controller/abc');
 
-//ROUTTIng
-app.get('/'(req,res)=>{
-  red.send('abc.js')
-
-})
-
-app.get('home'(req,res)=>{
-  red.send('hellow')
-
-})
+var app 	= express();
 
 
-app.get(''(req,res)=>{
-  red.send('abc.js')
+//Configuration
+app.set('view engine', 'ejs');
 
-})
+//Middleware
+app.use('/home', home);
+app.use('/abc', abc);
+
+//ROUTING
+app.get('/', (req, res)=>{
+
+});
+
+app.get('/login', (req, res)=>{
+
+});
+
+
+//SERVER STARTUP
+app.listen(3000, ()=>{
+	console.log('express server started at 3000');
+});
